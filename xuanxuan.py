@@ -17,30 +17,32 @@ class_names = {0: "APL/M3", 1: "AMoL/M5", 2: "ALL"}
 
 st.title("Acute Leukaemia Subtype Classification Model")
 
+st.write("## Input features (organized in two columns)")
+
 # 创建两列布局
 col1, col2 = st.columns(2)
 
 with col1:
-    B_percent = st.number_input("B% (%):", min_value=0.0, max_value=100.0, value=2.0, key="B%")
-    E = st.number_input("E (×10⁹/L):", min_value=0.0, max_value=10.0, value=0.1, key="E")
-    B = st.number_input("B (×10⁹/L):", min_value=0.0, max_value=10.0, value=0.2, key="B")
-    M = st.number_input("M (×10⁹/L):", min_value=0.0, max_value=10.0, value=0.3, key="M")
-    E_percent = st.number_input("E% (%):", min_value=0.0, max_value=100.0, value=1.5, key="E%")
-    N = st.number_input("N (×10⁹/L):", min_value=0.0, max_value=20.0, value=4.0, key="N")
-    L = st.number_input("L (×10⁹/L):", min_value=0.0, max_value=10.0, value=2.0, key="L")
-    M_percent = st.number_input("M% (%):", min_value=0.0, max_value=100.0, value=5.0, key="M%")
-    RBC = st.number_input("RBC (×10¹²/L):", min_value=0.0, max_value=10.0, value=4.5, key="RBC")
+    B_percent = st.number_input("B% (%):", min_value=0.0, max_value=100.0, value=0.9, key="B%")
+    E = st.number_input("E (×10⁹/L):", min_value=0.0, max_value=10.0, value=0.48, key="E")
+    B = st.number_input("B (×10⁹/L):", min_value=0.0, max_value=10.0, value=0.04, key="B")
+    M = st.number_input("M (×10⁹/L):", min_value=0.0, max_value=10.0, value=0.53, key="M")
+    E_percent = st.number_input("E% (%):", min_value=0.0, max_value=100.0, value=10.3, key="E%")
+    N = st.number_input("N (×10⁹/L):", min_value=0.0, max_value=20.0, value=2.24, key="N")
+    L = st.number_input("L (×10⁹/L):", min_value=0.0, max_value=10.0, value=1.37, key="L")
+    M_percent = st.number_input("M% (%):", min_value=0.0, max_value=100.0, value=11.4, key="M%")
+    RBC = st.number_input("RBC (×10¹²/L):", min_value=0.0, max_value=10.0, value=4.07, key="RBC")
 
 with col2:
-    WBC = st.number_input("WBC (×10⁹/L):", min_value=0.0, max_value=50.0, value=7.0, key="WBC")
-    L_percent = st.number_input("L% (%):", min_value=0.0, max_value=100.0, value=25.0, key="L%")
-    PCT = st.number_input("PCT (%):", min_value=0.0, max_value=5.0, value=0.2, key="PCT")
-    PLT = st.number_input("PLT (×10⁹/L):", min_value=0.0, max_value=1000.0, value=250.0, key="PLT")
-    N_percent = st.number_input("N% (%):", min_value=0.0, max_value=100.0, value=65.0, key="N%")
-    PDW = st.number_input("PDW (fL):", min_value=0.0, max_value=30.0, value=12.0, key="PDW")
-    MCH = st.number_input("MCH (pg):", min_value=0.0, max_value=100.0, value=29.0, key="MCH")
-    RDWSD = st.number_input("RDWSD (fL):", min_value=0.0, max_value=100.0, value=42.0, key="RDWSD")
-    MCV = st.number_input("MCV (fL):", min_value=0.0, max_value=120.0, value=90.0, key="MCV")
+    WBC = st.number_input("WBC (×10⁹/L):", min_value=0.0, max_value=50.0, value=4.66, key="WBC")
+    L_percent = st.number_input("L% (%):", min_value=0.0, max_value=100.0, value=29.4, key="L%")
+    PCT = st.number_input("PCT (%):", min_value=0.0, max_value=5.0, value=0.28, key="PCT")
+    PLT = st.number_input("PLT (×10⁹/L):", min_value=0.0, max_value=1000.0, value=261.0, key="PLT")
+    N_percent = st.number_input("N% (%):", min_value=0.0, max_value=100.0, value=48.0, key="N%")
+    PDW = st.number_input("PDW (fL):", min_value=0.0, max_value=30.0, value=12.1, key="PDW")
+    MCH = st.number_input("MCH (pg):", min_value=0.0, max_value=100.0, value=28.0, key="MCH")
+    RDWSD = st.number_input("RDWSD (fL):", min_value=0.0, max_value=100.0, value=49.8, key="RDWSD")
+    MCV = st.number_input("MCV (fL):", min_value=0.0, max_value=120.0, value=86.5, key="MCV")
 
 # 转化为模型输入格式（保持与 feature_names 一致的顺序）
 feature_values = [
@@ -62,9 +64,3 @@ if st.button("Predict"):
     st.subheader("Prediction Probabilities")
     for i, prob in enumerate(predicted_proba):
         st.write(f"- {class_names[i]}: {prob:.3f}")
-
-
-
-
-
-

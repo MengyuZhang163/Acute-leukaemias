@@ -6,7 +6,7 @@ import pandas as pd
 import shap
 
 # 加载随机森林模型
-model = joblib.load('E:/RS/wangxuanxuan/结果/特征筛选/RF/白血病三分类1.pkl')
+model = joblib.load('')
 
 # 定义特征名称
 feature_names = [
@@ -58,4 +58,5 @@ if st.button("Predict"):
     st.write(f"**Predicted Class:** {predicted_class} → {class_names[predicted_class]}")
     st.write("**Prediction Probabilities:**")
     for i, prob in enumerate(predicted_proba):
+
         st.write(f" - {class_names[i]}: {prob:.3f}")

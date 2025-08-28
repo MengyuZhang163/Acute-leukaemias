@@ -17,8 +17,6 @@ class_names = {0: "APL/M3", 1: "AMoL/M5", 2: "ALL"}
 
 st.title("Acute Leukaemia Subtype Classification Model")
 
-st.write("## Input features (organized in two columns)")
-
 # 创建两列布局
 col1, col2 = st.columns(2)
 
@@ -64,3 +62,4 @@ if st.button("Predict"):
     st.subheader("Prediction Probabilities")
     for i, prob in enumerate(predicted_proba):
         st.write(f"- {class_names[i]}: {prob:.3f}")
+

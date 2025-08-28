@@ -6,7 +6,7 @@ import pandas as pd
 import shap
 
 # 加载随机森林模型
-model = joblib.load()
+model = joblib.load('model')
 
 # 定义特征名称
 feature_names = [
@@ -60,4 +60,5 @@ if st.button("Predict"):
     for i, prob in enumerate(predicted_proba):
 
         st.write(f" - {class_names[i]}: {prob:.3f}")
+
 

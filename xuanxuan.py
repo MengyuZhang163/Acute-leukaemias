@@ -57,9 +57,10 @@ if st.button("Predict"):
 
     # 显示结果
     st.subheader("Prediction Result")
-    st.write(f"**Predicted Class:** {predicted_class} → {class_names[predicted_class]}")
+    st.write(f"**Predicted Class:** {class_names[predicted_class]}")
 
     st.subheader("Prediction Probabilities")
     for i, prob in enumerate(predicted_proba):
         st.write(f"- {class_names[i]}: {prob:.3f}")
+
 
